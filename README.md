@@ -1,22 +1,22 @@
 package_create
 ==============================
 
-This is just an illustration how to make a realworld package using cookiecutter and pypi 
+This is just an illustration how to make a opensource package using cookiecutter and pypi 
 
 Create Conda environment
 `conda create -n venv`
 
-Goto `cookiecutter` offical documentation http://drivendata.github.io/cookiecutter-data-science/ 
+-->`cookiecutter` offical documentation http://drivendata.github.io/cookiecutter-data-science/ 
 
-Now  fire up terminal and paste this `cookiecutter https://github.com/drivendata/cookiecutter-data-science`
+-->Now  fire up terminal and paste this `cookiecutter https://github.com/drivendata/cookiecutter-data-science`
 
-After that You get this type of template tree 
+-->After that You get this type of template tree 
 
-Now you can start data science project using this template 
+-->Now you can start data science project using this template 
 
-demo link : https://github.com/rohanpatankar926/Consignment-Pricing-Using-Mlops-DVC
+-->demo link : https://github.com/rohanpatankar926/Consignment-Pricing-Using-Mlops-DVC
 
-Project Organization
+-->Project Organization
 ------------
 
     ├── LICENSE
@@ -67,11 +67,11 @@ Project Organization
 
 --------
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+<p><small>-->Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
 
-After creating end to end data science project now we need to publish a package
+-->After creating end to end data science project now we need to publish a package so that everyone in the world can install and reuse our package..
 
-create `build.sh` file which looks like this 
+-->create and run `build.sh` file which looks like this 
 
 ```
 rm requirements.txt
@@ -82,11 +82,11 @@ rm -r .tox
 rm -r setup.py sdist bdist_wheel
 rm -r ./*.egg-info
 rm -r ./*.egg
+pip install twine
 twine check dist/*
 twine upload --repository testpypi dist/*
 twine upload --repository pypi dist/*
 ```
-
 
 ```
 Publish to PyPl
