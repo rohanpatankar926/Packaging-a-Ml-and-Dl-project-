@@ -3,6 +3,19 @@ package_create
 
 This is just an illustration how to make a realworld package using cookiecutter and pypi 
 
+Create Conda environment
+`conda create -n venv`
+
+Goto `cookiecutter` offical documentation http://drivendata.github.io/cookiecutter-data-science/ 
+
+Now  fire up terminal and paste this `cookiecutter https://github.com/drivendata/cookiecutter-data-science`
+
+After that You get this type of template tree 
+
+Now you can start data science project using this template 
+
+demo link : https://github.com/rohanpatankar926/Consignment-Pricing-Using-Mlops-DVC
+
 Project Organization
 ------------
 
@@ -55,3 +68,39 @@ Project Organization
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+
+After creating end to end data science project now we need to publish a package
+
+create `build.sh` file which looks like this 
+
+```
+rm requirements.txt
+pipreqs . --force
+rm -r build
+rm -r dist
+rm -r .tox
+rm -r setup.py sdist bdist_wheel
+rm -r ./*.egg-info
+rm -r ./*.egg
+twine check dist/*
+twine upload --repository testpypi dist/*
+twine upload --repository pypi dist/*
+```
+
+
+```
+Publish to PyPl
+What's PyPI?
+Python Package Index - official central repository for python package
+Enables developers to find, publish and install a python package
+o pip (python package manager) uses PyPI to retrieve dependencies
+Steps to Publish
+oStep 1: Ensure that pip is installed
+oStep 2: Package the Python code
+o Step 3: Create the source distribution of the package
+Step 4: Install twine
+Step 5: Create a PyPl Account
+Step 6: Upload the source distribution on PyPI
+Step 7: Check the lotest package updated on PyPI
+Step 8:Install the published package with pip
+```

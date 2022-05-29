@@ -1,0 +1,2 @@
+include README.md
+include project_artifacts/models/artifacts/*
